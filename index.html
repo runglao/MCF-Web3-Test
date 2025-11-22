@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCryptoFinance (MCF) - Full Ecosystem</title>
+    <link type="image/x-icon" href="https://i.ibb.co/m58shBg0/image-1.png" rel="shortcut icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="\Gemini 3 pro\style.css">
+    
+</head>
+<body>
+
+    <header>
+        <div class="brand"><div class="logo-icon">M</div>MyCryptoFinance</div>
+        <div class="wallet-info">
+            <div id="networkDisplay" class="badge"></div>
+            <div id="balanceDisplay" class="badge"></div>
+            <button id="connectBtn" class="btn-connect">CONNECT</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>📈 Mint MCF</h2>
+            <div class="stats-grid">
+                <div class="stat-box"><div class="stat-label">Price per Token</div><div class="stat-value" id="priceDisplay">Loading...</div></div>
+                <div class="stat-box"><div class="stat-label">Remaining</div><div class="stat-value" id="remainingDisplay">Loading...</div></div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-text" id="progressText">Checking Supply...</div>
+                <div id="supplyBar" class="progress-bar"></div>
+            </div>
+            <div class="input-group">
+                <label>You Pay (ETH)</label>
+                <div class="input-wrapper">
+                    <input type="number" id="mintAmountEth" placeholder="0.01" step="0.001">
+                    <span class="currency">ETH</span>
+                </div>
+            </div>
+            <div class="stat-box" style="margin-top: 10px; background: transparent; border: none; text-align: left; padding: 0;">
+                <div class="stat-label">Estimated tokens to receive:</div>
+                <div class="stat-value" id="calcOutput" style="color: var(--primary); font-size: 1.1rem;">0 MCF</div>
+            </div>
+            <button id="mintBtn" class="btn-action" onclick="mintToken()" disabled>CONNECT WALLET</button>
+            <div id="mintError" class="error-msg"></div>
+        </section>
+
+        <section class="card">
+            <h2>💸 Transfer</h2>
+            <div class="input-group"><label>Recipient</label><div class="input-wrapper"><input type="text" id="recipientAddress" placeholder="0x..."></div></div>
+            <div class="input-group" style="margin-top:15px;"><label>Amount MCF</label><div class="input-wrapper"><input type="number" id="sendAmount" placeholder="100"><span class="currency">MCF</span></div></div>
+            <button id="transferBtn" class="btn-action" onclick="transferToken()">SEND</button>
+        </section>
+
+        <h2 class="nft-section-title">💎 Mint NFT Editions</h2>
+        <div class="nft-grid" id="nftGrid">
+            </div>
+
+    </main>
+
+    <footer>
+        <a href="https://x.com/MyCryptoFinance" target="_blank">Twitter</a> &bull; 
+        <a href="#">Telegram</a> &bull; 
+        <a href="https://sepolia.etherscan.io/address/0xb66008c221ce3699c7f50aebb07898695845e95f" target="_blank">Etherscan</a>
+    </footer>
+
+    <div id="txModal" class="modal-overlay">
+        <div class="modal-content">
+            <div id="modalIcon"></div>
+            <h3 id="modalTitle" class="modal-title">Processing</h3>
+            <p id="modalDesc" class="modal-desc">Waiting...</p>
+            <div id="modalLinkContainer"></div>
+            <button class="btn-close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    
+ <script src="\Gemini 3 pro\Content.js"></script>
+   
+</body>
+</html>
